@@ -1,0 +1,133 @@
+{
+  "Strategy": {
+    "Business Planning": [
+      "business",
+      "strategy",
+      "plan",
+      "roadmap",
+      "priority",
+      "positioning",
+      "market"
+    ],
+    "Goals": [
+      "goal",
+      "objective",
+      "milestone",
+      "target",
+      "vision",
+      "outcome"
+    ],
+    "Decision Making": [
+      "decision",
+      "tradeoff",
+      "risk",
+      "option",
+      "choose",
+      "evaluate"
+    ]
+  },
+  "Ideas": {
+    "Product Ideas": [
+      "idea",
+      "feature",
+      "product",
+      "prototype",
+      "experiment",
+      "concept"
+    ],
+    "Content Ideas": [
+      "article",
+      "post",
+      "video",
+      "podcast",
+      "newsletter",
+      "content"
+    ],
+    "Improvements": [
+      "improve",
+      "upgrade",
+      "enhance",
+      "simplify",
+      "optimize",
+      "better"
+    ]
+  },
+  "Tasks": {
+    "Follow Up": [
+      "follow up",
+      "email",
+      "call",
+      "reply",
+      "send",
+      "schedule"
+    ],
+    "Work Items": [
+      "task",
+      "todo",
+      "deadline",
+      "deliver",
+      "finish",
+      "complete"
+    ],
+    "Meetings": [
+      "meeting",
+      "agenda",
+      "notes",
+      "attendee",
+      "discussion",
+      "review"
+    ]
+  },
+  "Research": {
+    "Questions": [
+      "question",
+      "investigate",
+      "learn",
+      "understand",
+      "why",
+      "how"
+    ],
+    "Sources": [
+      "source",
+      "study",
+      "paper",
+      "report",
+      "data",
+      "evidence"
+    ],
+    "Analysis": [
+      "analyze",
+      "compare",
+      "trend",
+      "pattern",
+      "insight",
+      "finding"
+    ]
+  },
+  "Personal Notes": {
+    "Reflection": [
+      "feel",
+      "reflection",
+      "journal",
+      "personal",
+      "remember",
+      "noticed"
+    ],
+    "Health": [
+      "health",
+      "exercise",
+      "sleep",
+      "doctor",
+      "energy",
+      "stress"
+    ],
+    "Relationships": [
+      "family",
+      "friend",
+      "partner",
+      "relationship",
+      "conversation",
+      "support"
+    ]
+  }
+}

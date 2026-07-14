@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -80,5 +81,23 @@ def _print_results(row: dict[str, str]) -> None:
     print(f"CSV: {DATA_PATH}")
 
 
+def _running_in_streamlit() -> bool:
+    """Return True when app.py is launched with `streamlit run app.py`."""
+    if "streamlit" not in sys.modules:
+        return False
+
+    try:
+        from streamlit.runtime.scriptrunner import get_script_run_ctx
+    except Exception:
+        return False
+
+    return get_script_run_ctx() is not None
+
+
 if __name__ == "__main__":
-    main()
+    if _running_in_streamlit():
+        from ui import main as streamlit_main
+
+        streamlit_main()
+    else:
+        main()

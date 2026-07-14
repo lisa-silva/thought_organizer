@@ -4,11 +4,12 @@ A small Python app that turns messy raw thoughts into organized spreadsheet rows
 
 ## Files
 
-- `app.py` runs the command-line interface.
+- `app.py` runs the command-line interface, and also opens the Streamlit UI when launched with `streamlit run app.py`.
 - `ui.py` runs the Streamlit interface.
 - `processor.py` cleans raw text and creates a short reminder.
 - `router.py` routes cleaned text into a layer and category.
-- `.streamlit/theme.toml` defines the global Streamlit theme.
+- `.streamlit/theme.toml` documents the requested palette theme.
+- `.streamlit/config.toml` applies the global Streamlit theme.
 - `config/categories.json` stores keyword mappings.
 - `storage/data.csv` stores saved entries.
 
@@ -40,10 +41,10 @@ pip install streamlit
 Then run:
 
 ```bash
-streamlit run ui.py
+streamlit run app.py
 ```
 
-The requested theme definition lives in `.streamlit/theme.toml`, and `ui.py` injects the same palette through Streamlit HTML/CSS so the interface reflects the theme at runtime. If the app is already running while you edit theme values, restart the Streamlit server so the page reloads the styling.
+You can also run `streamlit run ui.py` directly. The requested theme definition lives in `.streamlit/theme.toml`, and Streamlit's standard global theme settings live in `.streamlit/config.toml`. `ui.py` injects the same palette through HTML/CSS so the interface reflects the theme at runtime. If the app is already running while you edit theme values, restart the Streamlit server so the page reloads the styling.
 
 ## 2031 Cognitive Luminescence Palette
 

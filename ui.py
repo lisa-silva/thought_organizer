@@ -11,7 +11,7 @@ from urllib.parse import quote
 import streamlit as st
 
 from app import CSV_COLUMNS, DATA_PATH, append_entry
-from processor import clean_text, generate_short_reminder
+from processor import generate_professional_version, generate_short_reminder
 from router import route_entry
 
 
@@ -272,6 +272,29 @@ def inject_palette_css() -> None:
                 padding: 1rem;
             }}
 
+            .professional-output {{
+                background: linear-gradient(135deg, rgba(247, 245, 255, 0.98), rgba(237, 235, 250, 0.96));
+                border: 1px solid rgba(199, 167, 255, 0.55);
+                border-radius: 8px;
+                margin-top: 1rem;
+                padding: 1rem;
+            }}
+
+            .professional-output h4 {{
+                margin: 0 0 0.5rem;
+            }}
+
+            textarea {{
+                border-color: rgba(199, 167, 255, 0.7) !important;
+                border-radius: 8px !important;
+                transition: border-color 180ms ease, box-shadow 180ms ease;
+            }}
+
+            textarea:focus {{
+                border-color: var(--cyan-aurora) !important;
+                box-shadow: 0 0 0 3px rgba(123, 232, 255, 0.24) !important;
+            }}
+
             @keyframes identity-shift {{
                 0% {{ background-position: 0% 50%; }}
                 50% {{ background-position: 100% 50%; }}
@@ -332,10 +355,19 @@ def render_result_card(row: dict[str, str]) -> None:
             <span class="layer-chip" style="background: {color};">{layer}</span>
             <h3>{reminder}</h3>
             <p><strong>Category:</strong> {category}</p>
-            <p>{cleaned}</p>
+            <div class="professional-output">
+                <h4>Polished professional version</h4>
+                <p>{cleaned}</p>
+            </div>
         </div>
         """,
         unsafe_allow_html=True,
+    )
+    st.text_area(
+        "Copy-ready professional version",
+        value=row["full_cleaned_text"],
+        height=170,
+        key=f"professional_output_{row['timestamp']}",
     )
 
 
@@ -419,7 +451,7 @@ def build_table_html(rows: list[dict[str, str]]) -> str:
 
 
 def process_raw_text(raw_text: str) -> dict[str, str]:
-    cleaned_text = clean_text(raw_text)
+    cleaned_text = generate_professional_version(raw_text)
     short_reminder = generate_short_reminder(cleaned_text)
     routing = route_entry(cleaned_text)
 

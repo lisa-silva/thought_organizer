@@ -7,7 +7,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from processor import clean_text, generate_short_reminder
+from processor import generate_professional_version, generate_short_reminder
 from router import route_entry
 
 
@@ -31,7 +31,7 @@ def main() -> None:
         print("No input provided. Nothing was saved.")
         return
 
-    cleaned_text = clean_text(raw_text)
+    cleaned_text = generate_professional_version(raw_text)
     short_reminder = generate_short_reminder(cleaned_text)
     routing = route_entry(cleaned_text)
 
@@ -77,7 +77,7 @@ def _print_results(row: dict[str, str]) -> None:
     print(f"Layer: {row['layer']}")
     print(f"Category: {row['category']}")
     print(f"Reminder: {row['short_reminder']}")
-    print(f"Cleaned text: {row['full_cleaned_text']}")
+    print(f"Polished professional version: {row['full_cleaned_text']}")
     print(f"CSV: {DATA_PATH}")
 
 

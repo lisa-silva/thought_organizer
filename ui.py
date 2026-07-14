@@ -98,6 +98,12 @@ def inject_palette_css() -> None:
                 box-shadow: 0 18px 45px rgba(5, 5, 5, 0.08);
                 margin: 1rem 0;
                 padding: 1.25rem;
+                transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+            }}
+
+            .lum-card:hover {{
+                border-color: rgba(123, 232, 255, 0.85);
+                box-shadow: 0 20px 52px rgba(123, 232, 255, 0.18);
             }}
 
             .gradient-header {{
@@ -136,12 +142,31 @@ def inject_palette_css() -> None:
                 border-radius: 8px;
                 color: var(--text-color);
                 font-weight: 700;
+                min-height: 42px;
+                transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
             }}
 
             div.stButton > button:hover,
             div.stFormSubmitButton > button:hover {{
                 background: var(--cyan-aurora);
                 border-color: rgba(5, 5, 5, 0.2);
+                box-shadow: 0 10px 24px rgba(123, 232, 255, 0.32);
+                color: var(--text-color);
+                transform: translateY(-1px);
+            }}
+
+            div.stButton > button:active,
+            div.stFormSubmitButton > button:active {{
+                background: var(--neo-gold);
+                box-shadow: 0 4px 12px rgba(5, 5, 5, 0.12);
+                color: var(--text-color);
+                transform: translateY(1px) scale(0.99);
+            }}
+
+            div.stButton > button:focus,
+            div.stFormSubmitButton > button:focus {{
+                border-color: var(--rose-plasma);
+                box-shadow: 0 0 0 3px rgba(255, 183, 217, 0.45);
                 color: var(--text-color);
             }}
 
@@ -166,10 +191,27 @@ def inject_palette_css() -> None:
                 min-height: 42px;
                 padding: 0.65rem 0.9rem;
                 text-decoration: none !important;
+                transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, filter 180ms ease, transform 180ms ease;
+            }}
+
+            .layer-button:hover {{
+                background: var(--gradient-flow) !important;
+                border-color: rgba(5, 5, 5, 0.24);
+                box-shadow: 0 12px 28px rgba(123, 232, 255, 0.26);
+                filter: saturate(1.08);
+                transform: translateY(-2px);
+            }}
+
+            .layer-button:active {{
+                background: var(--gradient-emotion) !important;
+                box-shadow: 0 5px 14px rgba(5, 5, 5, 0.14);
+                transform: translateY(1px) scale(0.99);
             }}
 
             .layer-button.selected {{
+                animation: identity-shift 5s ease infinite;
                 background: var(--gradient-identity) !important;
+                background-size: 180% 180% !important;
                 box-shadow: 0 10px 28px rgba(5, 5, 5, 0.16);
             }}
 
@@ -180,7 +222,14 @@ def inject_palette_css() -> None:
                 font-size: 0.85rem;
                 font-weight: 800;
                 padding: 0.25rem 0.65rem;
+                transition: box-shadow 180ms ease, filter 180ms ease, transform 180ms ease;
                 white-space: nowrap;
+            }}
+
+            .layer-chip:hover {{
+                box-shadow: 0 8px 18px rgba(5, 5, 5, 0.14);
+                filter: saturate(1.12);
+                transform: translateY(-1px);
             }}
 
             .thought-table {{
@@ -208,11 +257,25 @@ def inject_palette_css() -> None:
                 background: var(--soft-halo-grey);
             }}
 
+            .thought-table tr {{
+                transition: filter 180ms ease, transform 180ms ease;
+            }}
+
+            .thought-table tr:hover {{
+                filter: saturate(1.06);
+            }}
+
             .empty-state {{
                 background: var(--quantum-pearl);
                 border: 1px dashed var(--soft-halo-grey);
                 border-radius: 8px;
                 padding: 1rem;
+            }}
+
+            @keyframes identity-shift {{
+                0% {{ background-position: 0% 50%; }}
+                50% {{ background-position: 100% 50%; }}
+                100% {{ background-position: 0% 50%; }}
             }}
         </style>
         """,

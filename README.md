@@ -1,16 +1,18 @@
 # Thought Organizer
 
-A small command-line Python app that turns messy raw thoughts into organized spreadsheet rows.
+A small Python app that turns messy raw thoughts into organized spreadsheet rows. It includes both a command-line interface and a Streamlit interface styled with the 2031 Cognitive Luminescence palette.
 
 ## Files
 
 - `app.py` runs the command-line interface.
+- `ui.py` runs the Streamlit interface.
 - `processor.py` cleans raw text and creates a short reminder.
 - `router.py` routes cleaned text into a layer and category.
+- `.streamlit/theme.toml` defines the global Streamlit theme.
 - `config/categories.json` stores keyword mappings.
 - `storage/data.csv` stores saved entries.
 
-## How To Run
+## How To Run The CLI
 
 From this folder, run:
 
@@ -26,6 +28,54 @@ The app will:
 2. Generate a 5-10 word reminder.
 3. Route the thought into a layer and category.
 4. Append the result to `storage/data.csv`.
+
+## How To Run The Streamlit UI
+
+Install Streamlit if needed:
+
+```bash
+pip install streamlit
+```
+
+Then run:
+
+```bash
+streamlit run ui.py
+```
+
+The requested theme definition lives in `.streamlit/theme.toml`, and `ui.py` injects the same palette through Streamlit HTML/CSS so the interface reflects the theme at runtime. If the app is already running while you edit theme values, restart the Streamlit server so the page reloads the styling.
+
+## 2031 Cognitive Luminescence Palette
+
+The Streamlit UI uses the full 2031 palette:
+
+- Luminescent Neutrals: `spectral_mist` `#EDEBFA`, `quantum_pearl` `#F7F5FF`, `soft_halo_grey` `#D9D7E8`
+- Spectral Intelligence accents: `infra_lilac` `#C7A7FF`, `cyan_aurora` `#7BE8FF`, `rose_plasma` `#FFB7D9`, `neo_gold` `#F7D774`
+- Cognitive Flow gradients: `gradient_flow`, `gradient_emotion`, and `gradient_identity`
+
+The global Streamlit theme is:
+
+```toml
+[theme]
+primaryColor = "#C7A7FF"
+backgroundColor = "#EDEBFA"
+secondaryBackgroundColor = "#F7F5FF"
+textColor = "#050505"
+font = "Inter"
+```
+
+## Layer-Based Color Logic
+
+The Streamlit Layer View and spreadsheet chips use these colors:
+
+- Strategy: `infra_lilac` `#C7A7FF`
+- Ideas: `cyan_aurora` `#7BE8FF`
+- Tasks: `neo_gold` `#F7D774`
+- Research: `soft_halo_grey` `#D9D7E8`
+- Personal Notes: `rose_plasma` `#FFB7D9`
+- Unsorted: neutral spectral grey `#BEBECF`
+
+In Layer View, each layer button uses its assigned color. The selected layer is highlighted with `gradient_identity`.
 
 ## How To Add Categories
 

@@ -7,7 +7,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from processor import generate_professional_version, generate_short_reminder
+from processor import clean_text, generate_short_reminder
 from router import route_entry
 
 
@@ -31,7 +31,7 @@ def main() -> None:
         print("No input provided. Nothing was saved.")
         return
 
-    cleaned_text = generate_professional_version(raw_text)
+    cleaned_text = clean_text(raw_text)
     short_reminder = generate_short_reminder(cleaned_text)
     routing = route_entry(cleaned_text)
 

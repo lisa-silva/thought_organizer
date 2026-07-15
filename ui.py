@@ -11,7 +11,7 @@ from urllib.parse import quote
 import streamlit as st
 
 from app import CSV_COLUMNS, DATA_PATH, append_entry
-from processor import generate_professional_version, generate_short_reminder
+from processor import clean_text, generate_short_reminder
 from router import route_entry
 
 
@@ -451,7 +451,7 @@ def build_table_html(rows: list[dict[str, str]]) -> str:
 
 
 def process_raw_text(raw_text: str) -> dict[str, str]:
-    cleaned_text = generate_professional_version(raw_text)
+    cleaned_text = clean_text(raw_text)
     short_reminder = generate_short_reminder(cleaned_text)
     routing = route_entry(cleaned_text)
 
